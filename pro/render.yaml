@@ -1,0 +1,27 @@
+# Render service and managed Postgres template.
+# You should review and set secrets/env vars in the Render dashboard after creating the service.
+services:
+  - type: web
+    name: dineat-web
+    env: python
+    plan: free
+    repo: https://github.com/GOKUL-1405/Project-DineAt
+    branch: main
+    buildCommand: pip install -r pro/backend/requirements.txt
+    startCommand: gunicorn DineAt.wsgi:application --chdir pro/backend --bind 0.0.0.0:$PORT
+    envVars:
+      - key: SECRET_KEY
+        value: "__SET_IN_DASHBOARD__"
+      - key: DEBUG
+        value: "false"
+      - key: ALLOWED_HOSTS
+        value: "*"
+
+databases:
+  - name: dineat-db
+    engine: postgres
+    plan: free
+
+# Notes:
+# - After you connect this repo in Render, open the service and add any secrets (GEMINI_API_KEY, DB credentials if you prefer not to use the managed DB, etc.).
+# - Render will run the `buildCommand` and `startCommand` above.

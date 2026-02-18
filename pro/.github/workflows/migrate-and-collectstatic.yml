@@ -1,0 +1,41 @@
+name: Migrate and Collectstatic
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r pro/backend/requirements.txt
+
+      - name: Run collectstatic
+        env:
+          DJANGO_SETTINGS_MODULE: DineAt.settings
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python pro/backend/manage.py collectstatic --noinput
+
+      - name: Run migrations
+        env:
+          DJANGO_SETTINGS_MODULE: DineAt.settings
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python pro/backend/manage.py migrate --noinput
+
+# Notes:
+# - This Action will run `collectstatic` and `migrate` on every push to `main`.
+# - You MUST add `SECRET_KEY` and `DATABASE_URL` (e.g. postgres://USER:PASS@HOST:PORT/NAME) to the repository Secrets in GitHub for this to work.
