@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - DineAt Premium Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>DineAt</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="help.html" class="nav-link">Help</a></li>
+                    <li><a href="login.html" class="nav-link active">Login</a></li>
+                </ul>
+               
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <div class="login-container">
+                <div class="login-header"> <br> <br> <br> 
+                    <div >
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h2>Welcome Back</h2>
+                    <p>Choose your role to continue to your dashboard</p>
+                </div>
+                <div class="login-card-container">
+                    <div class="login-card customer-card" data-user-type="customer"
+                        onclick="window.location.href='customer-login.html'">
+                        <div class="card-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Customer</h3>
+                            <p>Book tables, browse menu, and order food online</p>
+                            <div class="card-features">
+                                <span><i class="fas fa-check"></i> Table Booking</span>
+                                <span><i class="fas fa-check"></i> Online Ordering</span>
+                                <span><i class="fas fa-check"></i> Order Tracking</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+
+                    <div class="login-card kitchen-card" data-user-type="kitchen-staff"
+                        onclick="window.location.href='kitchen-login.html'">
+                        <div class="card-icon">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Kitchen Staff</h3>
+                            <p>Manage orders and streamline kitchen operations</p>
+                            <div class="card-features">
+                                <span><i class="fas fa-check"></i> Order Management</span>
+                                <span><i class="fas fa-check"></i> Real-time Updates</span>
+                                <span><i class="fas fa-check"></i> Kitchen Workflow</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+
+                    <div class="login-card admin-card" data-user-type="admin"
+                        onclick="window.location.href='admin-login.html'">
+                        <div class="card-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Admin</h3>
+                            <p>Complete system access and control</p>
+                            <div class="card-features">
+                                <span><i class="fas fa-check"></i> Full Control</span>
+                                <span><i class="fas fa-check"></i> Analytics</span>
+                                <span><i class="fas fa-check"></i> System Settings</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DineAt. Premium Restaurant Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Enhanced Login Page Styles */
+        .login-section {
+            min-height: 100vh;
+            background: #0f172a;
+            /* Solid Dark Navy */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .login-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+        }
+
+        .login-container {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .header-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .header-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .login-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+            letter-spacing: -0.5px;
+        }
+
+        .login-header p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .login-card {
+            background: rgba(30, 41, 59, 0.7);
+            /* Unified Glass Navy */
+            border-radius: 10px;
+            padding: 1.5rem;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-card.customer-card,
+        .login-card.kitchen-card,
+        .login-card.admin-card {
+            background: rgba(0, 8, 147, 0.7);
+            /* Same Color for all */
+        }
+
+        .card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card-icon i {
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .card-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .card-features span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .card-features i {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-arrow {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .card-arrow i {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .login-header h2 {
+                font-size: 2rem;
+            }
+
+            .login-card-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .login-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+    <script>
+        // Enhanced entrance animations and interactions
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.login-card');
+            const header = document.querySelector('.login-header');
+
+            // Header entrance animation
+            header.style.opacity = '0';
+            header.style.transform = 'translateY(-30px)';
+
+            setTimeout(() => {
+                header.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                header.style.opacity = '1';
+                header.style.transform = 'translateY(0)';
+            }, 200);
+
+            // Staggered card animations
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px) scale(0.9)';
+
+                setTimeout(() => {
+                    card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0) scale(1)';
+                }, 600 + (index * 200));
+            });
+
+            // Enhanced hover effects
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-15px) scale(1.05)';
+                    this.querySelector('.card-icon i').style.transform = 'scale(1.3) rotate(15deg)';
+                    this.querySelector('.card-arrow').style.transform = 'translateX(10px)';
+                    this.querySelector('.card-glow').style.opacity = '1';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.querySelector('.card-icon i').style.transform = 'scale(1) rotate(0deg)';
+                    this.querySelector('.card-arrow').style.transform = 'translateX(0)';
+                    this.querySelector('.card-glow').style.opacity = '0';
+                });
+
+                // Click effect
+                card.addEventListener('click', function () {
+                    this.style.transform = 'translateY(-5px) scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-15px) scale(1.05)';
+                    }, 150);
+                });
+            });
+
+            // Floating animation for header icon
+            const headerIcon = document.querySelector('.header-icon');
+            if (headerIcon) {
+                setInterval(() => {
+                    headerIcon.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        headerIcon.style.transform = 'translateY(0)';
+                    }, 2000);
+                }, 4000);
+            }
+        });
+    </script>
+    
+    <style>
+        /* Hamburger Menu Styles - Login Page Specific */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block !important;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background-color: #233d4c;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                gap: 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+            
+            .nav-link {
+                color: white !important;
+                font-size: 1.1rem;
+                padding: 1rem 2rem !important;
+            }
+        }
+    </style>
+    
+    <script src="script.js"></script>
+    
+    <script>
+        // Direct hamburger menu functionality for login page
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

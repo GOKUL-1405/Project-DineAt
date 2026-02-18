@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - DineAt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>DineAt</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="help.html" class="nav-link">Help</a></li>
+                    <li><a href="login.html" class="nav-link">Login</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="confirmation-section">
+            <div class="confirmation-hero">
+                <div class="hero-content">
+                    <div class="success-animation">
+                        <div class="success-circle">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="success-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                    </div>
+
+                    <h1 class="main-title">OrderConfirmed!</h1>
+                    <p class="hero-subtitle">Thank you for your order! We're preparing your delicious meal with care.
+                    </p>
+
+                    <div class="order-summary">
+                        <div class="summary-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Order Number</h3>
+                                <p id="order-number">ORD202602001</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Table</h3>
+                                <p id="table-number">Table 1</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Estimated Time</h3>
+                                <p>25-30 minutes</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Payment Method</h3>
+                                <p id="payment-method">Cash on Delivery</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-item total-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Total Amount</h3>
+                                <p class="total-amount" id="total-amount">₹700</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="confirmation-grid">
+                    <div class="timeline-section">
+                        <div class="section-header">
+                            <h2>🚀 Order Status</h2>
+                            <p>Track your order from kitchen to table</p>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item completed">
+                                <div class="timeline-dot">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Order Placed</h4>
+                                    <p>Your order has been successfully placed</p>
+                                    <span class="time">Just now</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item active">
+                                <div class="timeline-dot">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Kitchen Processing</h4>
+                                    <p>Your order is being prepared</p>
+                                    <span class="time">In progress</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Ready to Serve</h4>
+                                    <p>Your food is ready for serving</p>
+                                    <span class="time">Pending</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot">
+                                    <i class="fas fa-tray"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Served</h4>
+                                    <p>Your order will be served at your table</p>
+                                    <span class="time">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="actions-section">
+                        <div class="section-header">
+                            <h2>🎯 What's Next?</h2>
+                            <p>Continue your dining experience with DineAt</p>
+                        </div>
+
+                        <div class="action-cards">
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <div class="action-content">
+                                    <h3>Order More Items</h3>
+                                    <p>Add more delicious items to your order</p>
+                                    <button class="action-btn primary" onclick="window.location.href='menu.html'">
+                                        <i class="fas fa-plus"></i>
+                                        Order More
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="action-content">
+                                    <h3>Back to Home</h3>
+                                    <p>Return to the main menu</p>
+                                    <button class="action-btn secondary" onclick="window.location.href='index.html'">
+                                        <i class="fas fa-home"></i>
+                                        Go Home
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="action-content">
+                                    <h3>Need Help?</h3>
+                                    <p>Our support team is here to assist you</p>
+                                    <div class="support-buttons">
+                                        <a href="tel:+919876543210" class="support-btn">
+                                            <i class="fas fa-phone-alt"></i>
+                                            Call
+                                        </a>
+                                        <a href="mailto:support@dineat.com" class="support-btn">
+                                            <i class="fas fa-envelope"></i>
+                                            Email
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DineAt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Generate random order number
+        function generateOrderNumber() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `ORD${year}${month}${day}${random}`;
+        }
+
+        // Display order details
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectedTable = localStorage.getItem('selectedTable');
+            const paymentMethod = localStorage.getItem('paymentMethod') || 'Cash on Delivery';
+            const totalAmount = localStorage.getItem('totalAmount') || '700';
+
+            document.getElementById('order-number').textContent = generateOrderNumber();
+            document.getElementById('table-number').textContent = selectedTable ? `Table ${selectedTable}` : 'Table 1';
+            document.getElementById('payment-method').textContent = paymentMethod;
+            document.getElementById('total-amount').textContent = `₹${totalAmount}`;
+
+            // Animate timeline items on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                observer.observe(item);
+            });
+        });
+        
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #233D4C;
+
+            overflow-x: hidden;
+        }
+
+        /* Confirmation Section */
+        .confirmation-section {
+            padding: 100px 0 50px;
+            min-height: 100vh;
+
+            position: relative;
+        }
+
+        .confirmation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            pointer-events: none;
+        }
+
+        /* Black text styling for all elements */
+        .confirmation-section h1,
+        .confirmation-section h2,
+        .confirmation-section h3,
+        .confirmation-section h4,
+        .confirmation-section p,
+        .confirmation-section li,
+        .confirmation-section span,
+        .confirmation-section div {
+            color:white !important;
+            font-weight: 600;
+        }
+
+        .confirmation-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white !important;
+                        margin-bottom: 2rem;
+        }
+
+        .confirmation-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white !important;
+                        margin-bottom: 1.5rem;
+        }
+
+        .confirmation-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white !important;
+                        margin-bottom: 1rem;
+        }
+
+        .confirmation-section p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white !important;
+                        margin-bottom: 1rem;
+        }
+
+        /* Hero Section */
+        .confirmation-hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Success Animation */
+        .success-animation {
+            position: relative;
+            margin-bottom: 3rem;
+            display: inline-block;
+        }
+
+        .success-circle {
+            width: 120px;
+            height: 120px;
+            background: #27ae60;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+                       
+            position: relative;
+            z-index: 2;
+        }
+
+        .success-circle i {
+            font-size: 3rem;
+            color: white;
+            animation: checkmark 0.6s ease-out;
+        }
+
+
+
+        .success-rings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .ring {
+            position: absolute;
+            border: 2px solid rgba(39, 174, 96, 0.3);
+            border-radius: 50%;
+            animation: ringExpand 2s ease-out infinite;
+        }
+
+
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: #ffeaa7;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+                    }
+
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+
+        /* Order Summary */
+        .order-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .summary-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+                        text-align: center;
+        }
+
+        .summary-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+                    }
+
+        .total-item {
+            background: rgba(231, 76, 60, 0.2);
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+
+        .summary-icon {
+            width: 60px;
+            height: 60px;
+            background: #27ae60;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+                                }
+
+        .summary-item:hover .summary-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .summary-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .summary-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .total-amount {
+            color: blue;
+            font-size: 1.5rem !important;
+            font-weight: 800 !important;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Confirmation Grid */
+        .confirmation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: black;
+            margin-bottom: 1rem;
+            background: #ffffff;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+                    }
+
+        .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #27ae60;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(-20px);
+                    }
+
+        .timeline-item.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+                    }
+
+        .timeline-item.completed .timeline-dot {
+            background: #27ae60;
+            border-color: #27ae60;
+                    }
+
+        .timeline-item.active .timeline-dot {
+            background: #f39c12;
+            border-color: #f39c12;
+                    }
+
+
+
+        .timeline-dot i {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-left: 1rem;
+                    }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+        }
+
+        .time {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(39, 174, 96, 0.2);
+            color: #27ae60;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Actions Section */
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .action-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+                        text-align: center;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            background: rgba(14, 220, 7, 0.15);
+                    }
+
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            background: #3498db;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+                                }
+
+        .action-card:hover .action-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .action-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .action-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.8rem;
+        }
+
+        .action-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .action-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+                        display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .action-btn.primary {
+            background: #27ae60;
+            color: white;
+                    }
+
+        .action-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+                    }
+
+        .support-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .support-btn {
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+                        display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .support-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Responsive Styles for Order Confirmation Page */
+        @media (max-width: 1024px) {
+            .confirmation-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .order-summary {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .confirmation-hero {
+                padding: 80px 0 50px;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .success-circle {
+                width: 100px;
+                height: 100px;
+            }
+
+            .success-circle i {
+                font-size: 2.5rem;
+            }
+
+            .order-summary {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .summary-item {
+                padding: 1.5rem;
+            }
+
+            .confirmation-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-dot {
+                left: -2rem;
+                width: 40px;
+                height: 40px;
+            }
+
+            .timeline-dot i {
+                font-size: 1rem;
+            }
+
+            .timeline-content {
+                padding: 1rem;
+                margin-left: 0.5rem;
+            }
+
+            .timeline-content h4 {
+                font-size: 1.1rem;
+            }
+
+            .timeline-content p {
+                font-size: 0.95rem;
+            }
+
+            .action-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .action-card {
+                padding: 1.5rem;
+            }
+
+            .action-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .action-icon i {
+                font-size: 1.5rem;
+            }
+
+            .action-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .action-content p {
+                font-size: 0.95rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .support-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .support-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .success-circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            .success-circle i {
+                font-size: 2rem;
+            }
+
+            .summary-item {
+                padding: 1rem;
+            }
+
+            .summary-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .summary-icon i {
+                font-size: 1.5rem;
+            }
+
+            .summary-content h3 {
+                font-size: 1rem;
+            }
+
+            .summary-content p {
+                font-size: 1rem;
+            }
+
+            .total-amount {
+                font-size: 1.3rem !important;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-dot {
+                left: -1.5rem;
+                width: 35px;
+                height: 35px;
+            }
+
+            .timeline-content {
+                padding: 0.8rem;
+            }
+
+            .timeline-content h4 {
+                font-size: 1rem;
+            }
+
+            .timeline-content p {
+                font-size: 0.9rem;
+            }
+
+            .action-card {
+                padding: 1rem;
+            }
+
+            .action-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .action-icon i {
+                font-size: 1.3rem;
+            }
+
+            .action-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .action-content p {
+                font-size: 0.9rem;
+            }
+
+            .action-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Hamburger Menu Styles - Order Confirmation Page Specific */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            border-radius: 2px;
+                    }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background-color: #233d4c;
+                width: 100%;
+                text-align: center;
+                                                padding: 2rem 0;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .nav-link {
+                color: white !important;
+                font-size: 1.1rem;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</body>
+
+</html>

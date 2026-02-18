@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - DineAt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>DineAt</span>
+                </div>
+                <ul class="nav-menu">
+
+                    <li><a href="admin-dashboard.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="#" onclick="showSection('orders')" class="nav-link">Orders</a></li>
+                    <li><a href="#" onclick="showSection('menu')" class="nav-link">Menu</a></li>
+                    <li><a href="#" onclick="showSection('tables')" class="nav-link">Tables</a></li>
+                    <li><a href="#" onclick="showSection('payments')" class="nav-link">Payments</a></li>
+                    <li><a href="#" onclick="logout()" class="nav-link">Logout</a></li>
+                </ul>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="admin-dashboard">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h1 style="font-size: 2rem !important; color: black !important;">Admin Dashboard</h1>
+                    <div class="admin-info">
+                        <span style="font-size: 1.6rem !important; color: black !important;"><i
+                                class="fas fa-user-shield"></i> Administrator</span>
+                        <span style="font-size: 1.6rem !important; color: black !important;"><i
+                                class="fas fa-calendar"></i> <span id="current-date"></span></span>
+                    </div>
+                </div>
+
+                <!-- Overview Section -->
+                <div id="overview-section" class="dashboard-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3 style="font-size: 1.8rem !important; color: black !important;">Total Orders</h3>
+                            <div class="stat-number" style="font-size: 2.5rem !important; color: black !important;">156
+                            </div>
+                            <p class="stat-change" style="font-size: 1.2rem !important; color: black !important;">+12%
+                                from yesterday</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fas fa-rupee-sign"></i>
+                            <h3 style="font-size: 1.8rem !important; color: black !important;">Today's Revenue</h3>
+                            <div class="stat-number" style="font-size: 2.5rem !important; color: black !important;">
+                                ₹45,280</div>
+                            <p class="stat-change" style="font-size: 1.2rem !important; color: black !important;">+8%
+                                from yesterday</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fas fa-chair"></i>
+                            <h3 style="font-size: 1.8rem !important; color: black !important;">Occupied Tables</h3>
+                            <div class="stat-number" style="font-size: 2.5rem !important; color: black !important;">8/12
+                            </div>
+                            <p class="stat-change" style="font-size: 1.2rem !important; color: black !important;">67%
+                                occupancy</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h3 style="font-size: 1.8rem !important; color: black !important;">Active Customers</h3>
+                            <div class="stat-number" style="font-size: 2.5rem !important; color: black !important;">32
+                            </div>
+                            <p class="stat-change" style="font-size: 1.2rem !important; color: black !important;">
+                                Currently dining</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <h3>Recent Orders</h3>
+                            <div class="recent-orders">
+                                <div class="order-item">
+                                    <span>ORD001</span>
+                                    <span>Table 3</span>
+                                    <span>₹700</span>
+                                    <span class="status pending">Pending</span>
+                                </div>
+                                <div class="order-item">
+                                    <span>ORD002</span>
+                                    <span>Table 1</span>
+                                    <span>₹620</span>
+                                    <span class="status confirmed">Confirmed</span>
+                                </div>
+                                <div class="order-item">
+                                    <span>ORD003</span>
+                                    <span>Table 6</span>
+                                    <span>₹360</span>
+                                    <span class="status ready">Ready</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>Table Status</h3>
+                            <div class="table-status-grid">
+                                <div class="table-status-item occupied">
+                                    <span>Table 1</span>
+                                    <span>Occupied</span>
+                                </div>
+                                <div class="table-status-item available">
+                                    <span>Table 2</span>
+                                    <span>Available</span>
+                                </div>
+                                <div class="table-status-item occupied">
+                                    <span>Table 3</span>
+                                    <span>Occupied</span>
+                                </div>
+                                <div class="table-status-item available">
+                                    <span>Table 4</span>
+                                    <span>Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Management Section -->
+                <div id="orders-section" class="dashboard-section" style="display: none;">
+                    <h2>Orders Management</h2>
+                    <div class="section-controls">
+                        <button class="btn btn-primary" onclick="showAddOrderModal()">
+                            <i class="fas fa-plus"></i> Add New Order
+                        </button>
+                        <input type="text" placeholder="Search orders..." class="search-input">
+                    </div>
+
+                    <div class="orders-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Table</th>
+                                    <th>Customer</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ORD001</td>
+                                    <td>Table 3</td>
+                                    <td>Alice Johnson</td>
+                                    <td>4 items</td>
+                                    <td>₹700</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td>10:25 AM</td>
+                                    <td>
+                                        <button class="btn-action edit" onclick="editOrder('ORD001')">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action cancel" onclick="cancelOrder('ORD001')">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ORD002</td>
+                                    <td>Table 1</td>
+                                    <td>Bob Wilson</td>
+                                    <td>3 items</td>
+                                    <td>₹620</td>
+                                    <td><span class="status confirmed">Confirmed</span></td>
+                                    <td>10:15 AM</td>
+                                    <td>
+                                        <button class="btn-action edit" onclick="editOrder('ORD002')">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action cancel" onclick="cancelOrder('ORD002')">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Menu Management Section -->
+                <div id="menu-section" class="dashboard-section" style="display: none;">
+                    <h2>Menu Management</h2>
+                    <div class="section-controls">
+                        <button class="btn btn-primary" onclick="showAddMenuItemModal()">
+                            <i class="fas fa-plus"></i> Add Menu Item
+                        </button>
+                        <select class="filter-select">
+                            <option>All Categories</option>
+                            <option>Vegetarian</option>
+                            <option>Non-Vegetarian</option>
+                            <option>Desserts</option>
+                            <option>Beverages</option>
+                        </select>
+                    </div>
+
+                    <div class="menu-grid">
+                        <div class="menu-item-admin">
+                            <img src="https://via.placeholder.com/100x100" alt="Item">
+                            <div class="menu-item-info">
+                                <h4>Vegetable Samosa</h4>
+                                <p>Category: Starter • Veg</p>
+                                <p>Price: ₹120</p>
+                                <div class="menu-item-actions">
+                                    <button class="btn-action edit" onclick="editMenuItem('vs1')">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="deleteMenuItem('vs1')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item-admin">
+                            <img src="https://via.placeholder.com/100x100" alt="Item">
+                            <div class="menu-item-info">
+                                <h4>Paneer Butter Masala</h4>
+                                <p>Category: Main Course • Veg</p>
+                                <p>Price: ₹280</p>
+                                <div class="menu-item-actions">
+                                    <button class="btn-action edit" onclick="editMenuItem('vm1')">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="deleteMenuItem('vm1')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tables Management Section -->
+                <div id="tables-section" class="dashboard-section" style="display: none;">
+                    <h2>Tables Management</h2>
+                    <div class="tables-admin-grid">
+                        <div class="table-admin-card">
+                            <h3>Table 1</h3>
+                            <p>Seats: 2</p>
+                            <p>Status: <span class="status occupied">Occupied</span></p>
+                            <p>Current Order: ORD002</p>
+                            <button class="btn-action" onclick="freeTable(1)">Free Table</button>
+                        </div>
+
+                        <div class="table-admin-card">
+                            <h3>Table 2</h3>
+                            <p>Seats: 2</p>
+                            <p>Status: <span class="status available">Available</span></p>
+                            <p>No current order</p>
+                            <button class="btn-action" onclick="reserveTable(2)">Reserve</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments Section -->
+                <div id="payments-section" class="dashboard-section" style="display: none;">
+                    <h2>Payment History</h2>
+                    <div class="section-controls">
+                        <input type="date" class="date-input">
+                        <select class="filter-select">
+                            <option>All Payment Methods</option>
+                            <option>Cash</option>
+                            <option>Card</option>
+                            <option>UPI</option>
+                            <option>Wallet</option>
+                        </select>
+                    </div>
+
+                    <div class="payments-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Payment ID</th>
+                                    <th>Order ID</th>
+                                    <th>Amount</th>
+                                    <th>Method</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PAY001</td>
+                                    <td>ORD099</td>
+                                    <td>₹850</td>
+                                    <td>Credit Card</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td>09:45 AM</td>
+                                    <td>
+                                        <button class="btn-action view" onclick="viewPayment('PAY001')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>PAY002</td>
+                                    <td>ORD098</td>
+                                    <td>₹450</td>
+                                    <td>Cash</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td>09:30 AM</td>
+                                    <td>
+                                        <button class="btn-action view" onclick="viewPayment('PAY002')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 DineAt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Update current date
+        function updateDate() {
+            const now = new Date();
+            const dateString = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('current-date').textContent = dateString;
+        }
+        updateDate();
+
+        // Show different sections
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.dashboard-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Order management functions
+        function showAddOrderModal() {
+            showNotification('Add Order modal would open here');
+        }
+
+        function editOrder(orderId) {
+            showNotification(`Editing order ${orderId}`);
+        }
+
+        function cancelOrder(orderId) {
+            if (confirm(`Are you sure you want to cancel order ${orderId}?`)) {
+                showNotification(`Order ${orderId} cancelled`);
+            }
+        }
+
+        // Menu management functions
+        function showAddMenuItemModal() {
+            showNotification('Add Menu Item modal would open here');
+        }
+
+        function editMenuItem(itemId) {
+            showNotification(`Editing menu item ${itemId}`);
+        }
+
+        function deleteMenuItem(itemId) {
+            if (confirm(`Are you sure you want to delete this menu item?`)) {
+                showNotification(`Menu item ${itemId} deleted`);
+            }
+        }
+
+        // Table management functions
+        function freeTable(tableNumber) {
+            if (confirm(`Are you sure you want to free Table ${tableNumber}?`)) {
+                showNotification(`Table ${tableNumber} freed`);
+            }
+        }
+
+        function reserveTable(tableNumber) {
+            showNotification(`Table ${tableNumber} reserved`);
+        }
+
+        // Payment functions
+        function viewPayment(paymentId) {
+            showNotification(`Viewing payment ${paymentId} details`);
+        }
+    </script>
+
+    <style>
+        /* Increase font sizes for better visibility */
+        body {
+            font-size: 18px !important;
+        
+        }
+
+        .admin-dashboard {
+            padding: 100px 0 50px;
+            min-height: 100vh;
+            background: #233D4C;
+        }
+
+        .dashboard-header {
+            font-size: 2rem !important;
+        }
+
+        .dashboard-content h2 {
+            font-size: 2.5rem !important;
+        }
+
+        .dashboard-content h3 {
+            font-size: 2rem !important;
+        }
+
+        .dashboard-content p {
+            font-size: 1.4rem !important;
+        }
+
+        .stat-card h3 {
+            font-size: 1.8rem !important;
+        }
+
+        .stat-card p {
+            font-size: 1.4rem !important;
+        }
+
+        table th,
+        table td {
+            font-size: 1.3rem !important;
+        }
+
+        .btn-action {
+            font-size: 1.1rem !important;
+        }
+
+        .stat-number {
+            font-size: 2.5rem !important;
+        }
+
+        .stat-change {
+            font-size: 1.2rem !important;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .admin-info {
+            display: flex;
+            gap: 2rem;
+            color: #140202;
+        }
+
+        .admin-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-change {
+            color: #27ae60;
+            font-size: 0.9rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background: rgb(255, 255, 255);
+            color: #0c5460;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .recent-orders .order-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid black;
+        }
+
+        .recent-orders .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .table-status-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .table-status-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem;
+            border-radius: 5px;
+        }
+
+        .table-status-item.occupied {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .table-status-item.available {
+            background: #5e5f5e58;
+            color: #2e7d32;
+        }
+
+        .section-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-input,
+        .filter-select,
+        .date-input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .orders-table,
+        .payments-table {
+            background: black;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .orders-table table,
+        .payments-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .orders-table th,
+        .payments-table th {
+            background: #2c3e50;
+            color: black;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .orders-table td,
+        .payments-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .btn-action {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 0.5rem;
+        }
+
+        .btn-action.edit {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-action.cancel {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-action.delete {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-action.view {
+            background: #27ae60;
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-item-admin {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .menu-item-admin img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .menu-item-info {
+            flex: 1;
+        }
+
+        .menu-item-info h4 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .menu-item-info p {
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .menu-item-actions {
+            margin-top: 1rem;
+        }
+
+        .tables-admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .table-admin-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-admin-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .table-admin-card p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .status {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status.confirmed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.ready {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .status.completed {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .status.occupied {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status.available {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        @media (max-width: 768px) {
+            .admin-dashboard {
+                padding: 80px 0 30px;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .admin-info {
+                flex-direction: column;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                /* Stack on mobile */
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;
+            }
+
+            .stat-card i {
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+
+            .stat-info-container {
+                text-align: right;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .recent-orders .order-item {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                margin-bottom: 0.5rem;
+                background: #f9f9f9;
+            }
+
+            .section-controls {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .search-input,
+            .filter-select,
+            .date-input {
+                width: 100%;
+                padding: 12px;
+                /* Larger touch target */
+            }
+
+            .orders-table,
+            .payments-table {
+                display: block;
+                overflow-x: auto;
+                width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Table responsiveness helpers */
+            th,
+            td {
+                white-space: nowrap;
+                padding: 12px 15px;
+            }
+
+            .action-btn {
+                padding: 8px 12px;
+                min-height: 44px;
+                /* Touch target */
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #233D4C;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-header h1 {
+                font-size: 1.8rem !important;
+            }
+        }
+    </style>
+</body>
+
+</html>
