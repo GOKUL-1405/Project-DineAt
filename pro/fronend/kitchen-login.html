@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Staff Login - DineAt Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>DineAt</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="help.html" class="nav-link">Help</a></li>
+                    <li><a href="login.html" class="nav-link">Login</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <div class="container">
+                <div class="form-container">
+                    <center>
+                    <h2><b>Staff Login</b></h2>
+                    </center>
+
+
+
+
+                    <form id="kitchen-login-form" class="admin-login-form"
+                        onsubmit="event.preventDefault(); handleLogin('kitchen');">
+                        <div class="form-group">
+                            <label for="admin-username">Username:</label>
+                            <input type="text" id="staff-username" name="staff-username"
+                                placeholder="Enter staff username" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="admin-password">Password:</label>
+                            <input type="password" id="staff-password" name="staff-password"
+                                placeholder="Enter staff password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="admin-code">Staff Code:</label>
+                            <input type="text" id="staff-code" name="staff-code" placeholder="Enter staff security code"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn-full">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </button>
+                    </form> 
+                     <center>
+                    <div class="form-footer">
+                        <p><a href="login.html">← Back to login</a></p>
+                    </div>
+                    </center>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DineAt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Handle kitchen login form submission
+        document.getElementById('kitchen-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleLogin('kitchen');
+        });
+    </script>
+
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: white;
+            background-color:  #233D4C;
+
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Login Section */
+        .login-section {
+            padding: 100px 0 50px;
+            min-height: 100vh;
+            background : #233D4C;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            pointer-events: none;
+
+        }
+
+
+
+        /* Container */
+        .container {
+            max-width: 500px;
+            width: 200%;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: #233D4C;
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+           
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 1s ease-out;
+        }
+
+
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444, #dc2626, #f59e0b);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+
+
+        /* Form Header */
+        .form-container h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+            
+            position: relative;
+        }
+
+
+
+        /* Security Notice */
+        .security-notice {
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid rgba(239, 68, 68, 0.4);
+            border-radius: 15px;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            animation: slideInUp 1.2s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-notice::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.2), transparent);
+            animation: shimmerNotice 3s infinite;
+        }
+
+
+        .security-notice p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .security-notice i {
+            color: #ef4444;
+            font-size: 1.2rem;
+            animation: lock-pulse 2s infinite;
+        }
+
+     
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 1.2rem;
+            animation: slideInLeft 1.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .form-group:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .form-group:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .form-group:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+
+
+        .form-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group label::before {
+            content: '🔒';
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-group input:focus::placeholder {
+            opacity: 0.3;
+        }
+
+        .form-group input:focus {
+            border-color: #ef4444;
+            background: rgba(255, 255, 255, 0.15);
+
+        }
+
+        .form-group input:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-1px);
+        }
+
+        /* Submit Button */
+        .btn-full {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .btn-full::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-full::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+        }
+
+        .btn-full:hover::before {
+            left: 100%;
+        }
+
+        .btn-full:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+
+        .btn-full:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(239, 68, 68, 0.6);
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+        }
+
+        .btn-full:active {
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        .btn-full i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-full:hover i {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #233D4C;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Form Footer */
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+        }
+
+
+        .form-footer p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .form-footer a {
+            color: #e2e2e2;
+            text-decoration: none;
+            font-weight: 600;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-footer a:hover {
+            color: #0a0a0a;
+            text-decoration: underline;
+            transform: translateX(-5px);
+        }
+
+        /* Input field cursor fix */
+        input[type="text"],
+        input[type="password"] {
+            cursor: text !important;
+        }
+
+        /* Auto-fill styling */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: white !important;
+            -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.1) inset !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .form-container h2 {
+                font-size: 2rem;
+            }
+
+            .form-group input {
+                padding: 1rem 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            .btn-full {
+                padding: 1.1rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</body>
+
+</html>
