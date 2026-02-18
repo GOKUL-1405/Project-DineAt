@@ -29,6 +29,11 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=lambda v: [s.strip() for s in v.split(',')])
 
+# If ALLOWED_HOSTS was not provided in production, allow all hosts to avoid
+# startup errors. You should set a specific host in production for security.
+if (not ALLOWED_HOSTS or ALLOWED_HOSTS == ['']) and not DEBUG:
+    ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
